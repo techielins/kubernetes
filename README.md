@@ -1,2 +1,2 @@
 # kubernetes
-Sample Kubernetes project
+A Sample Kubernetes project
