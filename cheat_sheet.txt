@@ -1,0 +1,16 @@
+
+
+Taking a snapshot of the keyspace served by $ENDPOINT to the file snapshotdb:
+
+~# ETCDCTL_API=3 etcdctl --endpoints=https://127.0.0.1:2379 \
+  --cacert=<trusted-ca-file> --cert=<cert-file> --key=<key-file> \
+  snapshot save /opt/snapshot-pre-boot.db
+  
+  Verify the snapshot:
+  
+  ~# ETCDCTL_API=3 etcdctl --write-out=table snapshot status /opt/snapshot-pre-boot.db
+  
+  Restoring an etcd cluster
+  
+  ~# ETCDCTL_API=3 etcdctl --endpoints 127.0.0.1:2379 --data-dir=/var/lib/etcd-new snapshot restore /opt/snapshot-pre-boot.db
+  
