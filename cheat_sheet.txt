@@ -1,3 +1,35 @@
+Create a new pod with the nginx image.
+
+~# kubectl run nginx --image=nginx
+
+What is the image used to create the new pods ( in replicaset )
+
+~# kubectl describe rs newpods |grep -i image
+
+Which nodes are pods placed on?
+
+~# kubectl get po -o wide
+
+What images are used in the new webapp pod?
+
+~# kubectl describe po webapp |grep -i image
+
+What is the state of the container in the pod webapp?
+
+~# kubectl describe po webapp |grep -i state
+
+Delete the webapp Pod.
+
+~# kubectl delete pod webapp
+
+
+
+
+
+
+
+
+
 
 
 Taking a snapshot of the keyspace served by $ENDPOINT to the file snapshotdb:
