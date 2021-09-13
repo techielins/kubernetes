@@ -22,6 +22,21 @@ Delete the webapp Pod.
 
 ~# kubectl delete pod webapp
 
+To change image of a running pod
+
+~# kubectl edit pod <pod_name>
+
+How many ReplicaSets exist on the system?
+
+~# kubectl get rs
+
+Delete replicaset
+
+~# kubectl delete rs >replicaset_name>
+
+Scale the ReplicaSet to 5 PODs.
+
+~# kubectl scale rs new-replica-set --replicas=5
 
 
 
