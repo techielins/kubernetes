@@ -7,3 +7,4 @@ spec:
   containers:
   -  image: nginx
      name: nginx
+ #nodeName: node01 
