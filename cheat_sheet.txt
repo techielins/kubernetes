@@ -38,6 +38,12 @@ Scale the ReplicaSet to 5 PODs.
 
 ~# kubectl scale rs new-replica-set --replicas=5
 
+What is the image used to create the pods in the frontend-deployment deployment?
+
+~# kubectl describe deployments frontend-deployment |grep -i image
+
+
+
 
 
 
