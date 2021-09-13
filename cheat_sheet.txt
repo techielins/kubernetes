@@ -42,7 +42,26 @@ What is the image used to create the pods in the frontend-deployment deployment?
 
 ~# kubectl describe deployments frontend-deployment |grep -i image
 
+How many Namespaces exist on the system?
 
+~# kubectl get ns
+
+How many pods exist in the research namespace?
+
+~# kubectl get po -n research
+
+Create a POD in the finance namespace.
+
+~# kubectl run redis --image=redis --namespace=finance
+
+Creating Namespaces
+
+~# kubectl create namespace test
+
+One way is to set the “namespace” flag when creating the resource:
+
+  kubectl apply -f pod.yaml --namespace=test
+  
 
 
 
