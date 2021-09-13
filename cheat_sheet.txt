@@ -61,7 +61,12 @@ Creating Namespaces
 One way is to set the “namespace” flag when creating the resource:
 
   kubectl apply -f pod.yaml --namespace=test
-  
+ 
+How many Services exist on the system?
+
+~# kubectl get service
+
+
 
 
 
