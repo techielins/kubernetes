@@ -94,9 +94,17 @@ We have deployed a number of PODs. They are labelled with tier, env and bu. How 
 
 ~# kubectl get po -l env=dev
 
+Create a taint on node01 with key of spray, value of mortein and effect of NoSchedule
 
+~# kubectl taint node node01 spray=mortein:NoSchedule
 
+Remove a taint on node01 with key of spray, value of mortein and effect of NoSchedule
 
+~# kubectl taint node node01 spray=mortein:NoSchedule-
+
+To view the log file /log/app.log inside the pod
+
+~# kubectl exec webapp -- tail -f /log/app.log
 
 
 
