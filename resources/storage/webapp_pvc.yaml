@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+
+      
+  name: webapp
+  namespace: default
+
+spec:
+  containers:
+    - image: kodekloud/event-simulator
+      name: event-simulator
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-mjmvt
+        readOnly: true
+
+      - mountPath: "/log"
+        name: pv-storage 
+     
+
+  nodeName: controlplane
+  volumes:
+  - name: default-token-mjmvt
+    secret:
+      defaultMode: 420
+      secretName: default-token-mjmvt
+  - name: pv-storage
+    persistentVolumeClaim:
+      claimName: claim-log-1
