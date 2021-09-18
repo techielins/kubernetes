@@ -106,6 +106,35 @@ To view the log file /log/app.log inside the pod
 
 ~# kubectl exec webapp -- tail -f /log/app.log
 
+See csr requests
+
+~#kubectl get csr
+
+Approve csr request
+
+kubectl certificate approve <name>
+
+Deny csr request
+
+kubectl certificate deny <name>
+
+Delete csr request
+
+~# kubectl delete csr <name>
+
+What are the resources the kube-proxy role in the kube-system namespace is given access to?
+
+~# kubectl describe role kube-proxy -n kube-system
+
+Which account is the kube-proxy role assigned to it?
+
+~# kubectl describe rolebindings kube-proxy -n kube-system
+
+A user dev-user is created. User's details have been added to the kubeconfig file. Inspect the permissions granted to the user. Check if the user can list pods in the default namespace.
+
+~# kubectl auth can-i list pods --as dev-user
+
+
 
 
 
