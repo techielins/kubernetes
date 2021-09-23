@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+
+  labels:
+    app: blue
+  name: blue
+  namespace: default
+spec:
+ 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blue
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: blue
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+
+      affinity:
+       nodeAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+           nodeSelectorTerms:
+           - matchExpressions:
+             - key: color
+               operator: In
+               values:
+               - blue
