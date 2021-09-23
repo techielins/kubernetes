@@ -134,17 +134,13 @@ A user dev-user is created. User's details have been added to the kubeconfig fil
 
 ~# kubectl auth can-i list pods --as dev-user
 
+JSON PATH
 
+~#kubectl get nodes -o=jsonpath='{.items[*].metadata.name}' > /opt/outputs/nodes_names.txt  #list node_names
 
+~#kubectl get nodes -o=jsonpath='{range.items[*]}{.status.nodeInfo.osImage}{"\n"}' > /opt/outputs/nodes_os.txt #list node OS
 
-
-
-
-
-
-
-
-
+~# kubectl config view --kubeconfig=/root/my-kube-config -o=jsonpath='{range..users[*]}{.name}{"\n"}' > /opt/outputs/users.txt  #list users
 
 
 Taking a snapshot of the keyspace served by $ENDPOINT to the file snapshotdb:
