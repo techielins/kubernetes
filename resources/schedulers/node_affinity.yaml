@@ -1,3 +1,6 @@
+##Set Node Affinity to the deployment to place the pods on node01 only based on the label color=blue.
+##~# kubectl label nodes node01 color=blue
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
