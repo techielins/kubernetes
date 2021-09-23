@@ -1,0 +1,25 @@
+##Deploy a DaemonSet for FluentD Logging.
+##Use the given specifications.
+##Name: elasticsearch
+##Namespace: kube-system
+##Image: k8s.gcr.io/fluentd-elasticsearch:1.20
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: elasticsearch
+  namespace: kube-system
+  labels:
+    name: elasticsearch
+spec:
+  selector:
+    matchLabels:
+      name: elasticsearch
+  template:
+    metadata:
+      labels:
+        name: elasticsearch
+    spec:
+       containers:
+       - name: elasticsearch
+         image: k8s.gcr.io/fluentd-elasticsearch:1.20
