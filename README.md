@@ -1,2 +1,2 @@
 # kubernetes
-A Sample Kubernetes project
+Contains Sample yaml files related to Kubernetes resources.
