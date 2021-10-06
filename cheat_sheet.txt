@@ -134,6 +134,12 @@ A user dev-user is created. User's details have been added to the kubeconfig fil
 
 ~# kubectl auth can-i list pods --as dev-user
 
+#### Cluster Role and Bind ####
+
+~# kubectl create clusterrole storage-admin --verb=list,get,create,delete --resource=storageclasses,persistentvolumes
+
+~# kubectl create clusterrolebinding michelle-storage-admin --clusterrole=storage-admin --user=michelle
+
 JSON PATH
 
 ~#kubectl get nodes -o=jsonpath='{.items[*].metadata.name}' > /opt/outputs/nodes_names.txt  #list node_names
