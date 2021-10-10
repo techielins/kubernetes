@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds-important
+  namespace: project-tiger
+  labels:
+    id: ds-important
+    uuid: 18426a0b-5f59-4e10-923f-c0e078e82462
+spec:
+  selector:
+    matchLabels:
+      name: ds-important
+  template:
+    metadata:
+      labels:
+        name: ds-important
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: ds-important
+        image: httpd:2.4-alpine
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 10m
+            memory: 10Mi
