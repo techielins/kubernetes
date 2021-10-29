@@ -1,0 +1,27 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: dev-allow-ingress
+  namespace: dev
+spec:
+  podSelector:
+    matchLabels:
+      run: dev-websrv
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          ns: qa
+      podSelector:
+        matchLabels:
+          run: connect1
+    ports:
+    - protocol: TCP
+      port: 80
+
+  egress:
+  - {}
