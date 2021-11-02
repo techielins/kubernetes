@@ -1,0 +1,85 @@
+
+---
+
+#Pod affinity
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cachestore
+  name: redis04
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cachestore
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cachestore
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - cachestore
+            topologyKey: "kubernetes.io/hostname"      
+      containers:
+      - image: redis
+        name: redis
+
+
+
+---
+
+#Pod affinity and Anti Pod affinity
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: webstore
+  name: nginx04
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webstore
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: webstore
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - webstore
+            topologyKey: "kubernetes.io/hostname"
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - cachestore
+            topologyKey: "kubernetes.io/hostname"      
+      containers:
+      - image: nginx
+        name: nginx
