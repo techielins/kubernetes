@@ -5,7 +5,7 @@ metadata:
 spec:
   
   selector:
-    release : "0-5"
+    app: webapp
   
   ports:
   - name : http

@@ -1,0 +1,5 @@
+ kubectl port-forward --address 0.0.0.0 svc/mylins-webapp 30080:80 > /dev/null &
+
+ kubectl port-forward --address 0.0.0.0 svc/mylins-webapp 30081:8161 > /dev/null &
+
+ 
