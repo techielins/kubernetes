@@ -1,4 +1,4 @@
-
+#Install Minikube Steps
 #Update the system packages on Ubuntu 22.04 LTS AWS EC2
 sudo apt update
 #Download kubectl binary with curl on Ubuntu using below command
