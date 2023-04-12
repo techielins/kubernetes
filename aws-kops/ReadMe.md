@@ -95,5 +95,16 @@ Customize Cluster Configuration
 
 ~# kops edit cluster --name ${NAME}
 
+Build the Cluster
+
+~# kops update cluster --name ${NAME} --yes --admin
+
+Get admin privileges and set the context for your cluster
+
+~# kops export kubecfg --admin
+
+Check if cluster up and running
+
+~# kops validate cluster
 
 
