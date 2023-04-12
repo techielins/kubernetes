@@ -110,4 +110,7 @@ Get admin privileges and set the context for your cluster
 
 ~# kops validate cluster
 
+# Delete the Cluster
+
+~# kops delete cluster --name ${NAME} --yes
 
