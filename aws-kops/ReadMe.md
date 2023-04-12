@@ -76,13 +76,13 @@ We're ready to start creating our first cluster! Let's first set up a few enviro
 
 ~# export KOPS_STATE_STORE=s3://mylins-kops-state-store
 
-# Create cluster configuration
+Create cluster configuration
 
 We will need to note which availability zones are available to us. In this example we will be deploying our cluster to the us-east-1 region.
 
 ~#  aws ec2 describe-availability-zones --region us-east-1
 
-# Create config files for cluster
+Create config files for cluster
 
 ~# kops create cluster --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d,us-east-1e,us-east-1f --name=${NAME}
 
