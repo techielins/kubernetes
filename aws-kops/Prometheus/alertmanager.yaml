@@ -16,9 +16,9 @@ receivers:
     text: "<!channel> \nsummary: {{ .CommonAnnotations.summary }}\ndescription: {{ .CommonAnnotations.description }}\nmessage: {{ .CommonAnnotations.message }}"
     
     
-    /* commands used
-    ~]# k get secret -n monitoring alertmanager-monitoring-kube-prometheus-alertmanager -o yaml
-    ~]# echo Z2xvYmFsOgogIHJlc29sdmVfdGltZW91dDogNW0KcmVjZWl2ZXJzOgotIG5 |base64 -d
-    ~]# k delete secret -n monitoring alertmanager-monitoring-kube-prometheus-alertmanager
-    ~]# k create secret generic --from-file=alertmanager.yaml -n monitoring alertmanager-monitoring-kube-prometheus-alertmanager
-    */
+#      Commands used for Slack integration
+#     ~]# k get secret -n monitoring alertmanager-monitoring-kube-prometheus-alertmanager -o yaml
+#     ~]# echo Z2xvYmFsOgogIHJlc29sdmVfdGltZW91dDogNW0KcmVjZWl2ZXJzOgotIG5 |base64 -d
+#     ~]# k delete secret -n monitoring alertmanager-monitoring-kube-prometheus-alertmanager
+#     ~]# k create secret generic --from-file=alertmanager.yaml -n monitoring alertmanager-monitoring-kube-prometheus-alertmanager
+   
