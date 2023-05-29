@@ -16,6 +16,10 @@ spec:
       containers:
       - name: queue
         image: richardchesterwood/k8s-fleetman-queue:release2
+        resources:
+          requests:
+            memory: 300Mi
+            cpu: 100m
 
 ---
 
@@ -40,6 +44,11 @@ spec:
         env:
          - name: SPRING_PROFILES_ACTIVE
            value: production-microservice
+        resources:
+          requests:
+            memory: 200Mi
+            cpu: 50m
+           
 
 
 ---
@@ -65,6 +74,10 @@ spec:
         env:
          - name: SPRING_PROFILES_ACTIVE
            value: production-microservice
+        resources:
+          requests:
+            memory: 200Mi
+            cpu: 50m
 
 
 ---
@@ -90,6 +103,10 @@ spec:
         env:
          - name: SPRING_PROFILES_ACTIVE
            value: production-microservice
+        resources:
+          requests:
+            memory: 200Mi
+            cpu: 50m
 
 ---
 
@@ -113,4 +130,8 @@ spec:
         image: richardchesterwood/k8s-fleetman-webapp-angular:release2
         env:
          - name: SPRING_PROFILES_ACTIVE
+        resources:
+          requests:
+            memory: 100Mi
+            cpu: 50m 
            value: production-microservice
