@@ -81,38 +81,41 @@ export KOPS_STATE_STORE=s3://mylins-kops-state-store
 Create cluster configuration
 
 We will need to note which availability zones are available to us. In this example we will be deploying our cluster to the us-east-1 region.
-
-~#  aws ec2 describe-availability-zones --region us-east-1
+```
+aws ec2 describe-availability-zones --region us-east-1
+```
 
 Create config files for cluster
-
-~# kops create cluster --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d,us-east-1e,us-east-1f --name=${NAME}
+```
+kops create cluster --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d,us-east-1e,us-east-1f --name=${NAME}
+```
 
 Generate SSK keys:
-
-~# ssh-keygen -t rsa
+```
+ssh-keygen -t rsa
+```
 
 Set SSH key to manage the cluster
-
-~# kops create secret --name ${NAME} sshpublickey admin -i /home/ec2-user/.ssh/id_rsa.pub
-
+```
+kops create secret --name ${NAME} sshpublickey admin -i /home/ec2-user/.ssh/id_rsa.pub
+```
 # Customize Cluster Configuration
-
-~# kops edit cluster --name ${NAME}
-
+```
+kops edit cluster --name ${NAME}
+```
 # Build the Cluster
-
-~# kops update cluster --name ${NAME} --yes --admin
-
+```
+kops update cluster --name ${NAME} --yes --admin
+```
 Get admin privileges and set the context for your cluster
-
-~# kops export kubecfg --admin
-
+```
+kops export kubecfg --admin
+```
 # Check if cluster up and running
-
-~# kops validate cluster
-
+```
+kops validate cluster
+```
 # Delete the Cluster
-
-~# kops delete cluster --name ${NAME} --yes
-
+```
+kops delete cluster --name ${NAME} --yes
+```
