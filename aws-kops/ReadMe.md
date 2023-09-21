@@ -51,30 +51,32 @@ aws iam create-access-key --user-name kops
 You should record the SecretAccessKey and AccessKeyID in the returned JSON output, and then use them below:
 
 # Configure the aws client to use your new IAM user
-
-~# aws configure           # Use your new access and secret key here
-~# aws iam list-users      # you should see a list of all your IAM users here
+```
+aws configure           # Use your new access and secret key here
+aws iam list-users      # you should see a list of all your IAM users here
+```
 
 Because "aws configure" doesn't export these vars for kops to use, we export them now
-
-~# export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
-
-~# export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
+```
+export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
+export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
+```
 
 # Cluster State storage
 
 In order to store the state of your cluster, and the representation of your cluster, we need to create a dedicated S3 bucket for kops to use. This bucket will become the source of truth for our cluster configuration. 
-
-~# aws s3api create-bucket --bucket mylins-kops-state-store --region us-east-1
+```
+aws s3api create-bucket --bucket mylins-kops-state-store --region us-east-1
+```
 
 # Creating your first cluster:
 
 Prepare local environment
 We're ready to start creating our first cluster! Let's first set up a few environment variables to make the process easier.
-
-~# export NAME=mylins.k8s.local
-
-~# export KOPS_STATE_STORE=s3://mylins-kops-state-store
+```
+export NAME=mylins.k8s.local
+export KOPS_STATE_STORE=s3://mylins-kops-state-store
+```
 
 Create cluster configuration
 
