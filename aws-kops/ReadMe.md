@@ -12,8 +12,6 @@ sudo mv kops /usr/local/bin/kops
 ###Install kubectl binary with curl
 ```
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-```
-```
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
 #Test to ensure the version you installed is up-to-date:
