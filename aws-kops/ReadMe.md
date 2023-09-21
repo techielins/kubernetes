@@ -32,6 +32,8 @@ In order to build clusters within AWS we'll create a dedicated IAM user for kops
 You can create the kOps IAM user from the command line using the following:
 ```
 aws iam create-group --group-name kops
+```
+```
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess --group-name kops
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonRoute53FullAccess --group-name kops
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --group-name kops
@@ -40,11 +42,11 @@ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonVPCFullAc
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonSQSFullAccess --group-name kops
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess --group-name kops
 ```
-~# aws iam create-user --user-name kops
-
-~# aws iam add-user-to-group --user-name kops --group-name kops
-
-~# aws iam create-access-key --user-name kops
+```
+aws iam create-user --user-name kops
+aws iam add-user-to-group --user-name kops --group-name kops
+aws iam create-access-key --user-name kops
+```
 
 You should record the SecretAccessKey and AccessKeyID in the returned JSON output, and then use them below:
 
