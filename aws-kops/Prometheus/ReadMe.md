@@ -21,3 +21,4 @@ To list the services, you may use the command
 ```
 kubectl get svc -n monitoring
 ```
+Grafana default credentials - admin / prom-operator
