@@ -12,6 +12,12 @@ Note: You must execute crds.yaml file before executing kops-monitoring.yaml.
 
 This will deploy pods under "monitoring" namespace.
 
-You may verify it via **kubeclt get pods -n monitoring**
+You may verify it via 
+```
+kubectl get pods -n monitoring
+```
 
-To list the services, you may use the command **kubectl get svc -n monitoring**
+To list the services, you may use the command
+```
+kubectl get svc -n monitoring
+```
